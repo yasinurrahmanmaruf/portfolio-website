@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yasinur Rahman Maruf — Legal Portfolio</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+<style>
+:root{
+  --nav-height:64px;
+  --accent:#0b5ed7;
+  --accent-dark:#083b8a;
+  --gold:#cba135;
+  --bg:#f6f8fa;
+  --text:#0b1720;
+  --muted:#6b7280;
+  --card-radius:12px;
+  --max-width:1100px;
+}
+*{box-sizing:border-box;}
+body, html{margin:0; padding:0; font-family:"Lora", serif; background:var(--bg); color:var(--text);}
+a{text-decoration:none; color:inherit;}
+
+/* Navigation */
+nav{
+  position:fixed; top:0; left:0; width:100%; height:var(--nav-height);
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,0.98); z-index:9999;
+  box-shadow:0 6px 18px rgba(12,18,30,0.06);
+  backdrop-filter: blur(4px);
+}
+nav .container{max-width:var(--max-width); width:100%; padding:0 20px; display:flex; align-items:center; justify-content:space-between;}
+.brand{font-family:'Montserrat',sans-serif; font-weight:700; color:var(--accent-dark); letter-spacing:.2px}
+.nav-links{display:flex; gap:18px; align-items:center;}
+.nav-links a{color:var(--accent-dark); font-weight:600; padding:8px 10px;}
+.nav-links a:hover{color:var(--gold);}
+
+/* Hero */
+.hero{
+  position:relative; height:calc(100vh - var(--nav-height)); margin-top:var(--nav-height); 
+  overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 20px; min-height:520px;
+  background: linear-gradient(135deg, #0b5ed7, #083b8a);
+  color:#fff;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1; 
+  background: rgba(0,0,0,0.25);
+}
+.hero .inner{position:relative; z-index:3; max-width:900px; width:100%;}
+.hero h1{font-family:'Montserrat',sans-serif; font-weight:700; font-size:48px; margin:0 0 10px; color:#fff;}
+.hero .role{font-family:Montserrat, sans-serif; font-weight:600; color:#cba135; font-size:20px; margin-bottom:22px;}
+.hero p.lead{max-width:820px; margin:0 auto 22px; font-size:18px; color:#e0e0e0;}
+.hero .actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:12px; font-weight:700; font-family:Montserrat, sans-serif; box-shadow:0 6px 20px rgba(11,78,160,0.12); transition: transform .18s ease, box-shadow .18s ease;}
+.btn-primary{background:linear-gradient(180deg,var(--accent) 0%, var(--accent-dark) 100%); color:#fff;}
+.btn-ghost{background:rgba(255,255,255,0.95); color:var(--accent-dark); border:1px solid rgba(11,94,215,0.06);}
+.btn:hover{transform:translateY(-4px); box-shadow:0 14px 32px rgba(11,78,160,0.14);}
+
+/* Sections */
+.section{max-width:var(--max-width); margin:70px auto; padding:0 20px;}
+.section h2{font-family: 'Montserrat', sans-serif; font-size:28px; color:var(--accent-dark); margin-bottom:18px; position:relative; display:inline-block; scroll-margin-top: var(--nav-height);}
+.section h2::after{content:""; position:absolute; left:0; bottom:-10px; height:4px; width:58px; background:var(--gold); border-radius:3px;}
+
+/* About */
+.about .content{display:flex; gap:36px; align-items:flex-start; flex-wrap:wrap;}
+.about .bio{flex:1 1 520px; background:linear-gradient(180deg,#fff,#fafafa); padding:22px; border-radius:12px; box-shadow:0 8px 24px rgba(12,18,30,0.04);}
+.about .bio p{margin-bottom:12px; color:var(--muted); font-size:16px; line-height:1.7;}
+
+/* Timeline */
+.timeline{display:flex; flex-direction:column; gap:18px;}
+.timeline .item{display:flex; gap:18px; align-items:flex-start;}
+.timeline .marker{width:10px; height:10px; background:var(--accent); border-radius:50%; margin-top:12px; box-shadow:0 4px 12px rgba(11,78,160,0.12);}
+.timeline .card{flex:1; background:#fff; padding:18px; border-radius:12px; box-shadow:0 8px 26px rgba(12,18,30,0.05); font-family:Lora, serif;}
+.card h3{margin:0 0 10px; font-family:Montserrat, sans-serif; font-size:16px;}
+
+/* Skills */
+.skills-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap:18px;}
+.skill-card{background:linear-gradient(180deg,#fff,#fbfbfb); border-radius:12px; padding:14px; box-shadow:0 8px 18px rgba(12,18,30,0.04); display:flex; gap:12px; align-items:center;}
+.skill-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-dark)); display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px; box-shadow:0 6px 18px rgba(11,78,160,0.12);}
+.skill-body h4{margin:0; font-family:Montserrat, sans-serif; font-size:15px;}
+.skill-body p{margin:4px 0 0; color:var(--muted); font-size:13px;}
+
+/* Contact */
+.contact-grid{display:grid; gap:24px; align-items:start;}
+.contact-card{background:#fff;padding:18px;border-radius:12px; box-shadow:0 8px 24px rgba(12,18,30,0.05);}
+
+/* Footer */
+.footer{padding:30px 20px; text-align:center; color:var(--muted); font-size:14px;}
+
+/* Responsive */
+@media(max-width:900px){
+  .about .content{flex-direction:column;}
+  .contact-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:34px;}
+  .hero .role{font-size:16px;}
+}
+@media(max-width:480px){
+  nav .container{padding:0 12px;}
+  .hero h1{font-size:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav aria-label="Main navigation">
+  <div class="container">
+    <div class="brand">Yasinur Rahman Maruf</div>
+    <div class="nav-links" role="navigation">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/yasinur-rahman-maruf-92292937b" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="inner" data-aos="fade-up">
+    <h1 tabindex="0">Yasinur Rahman Maruf</h1>
+    <div class="role" data-aos="fade-up" data-aos-delay="120">Law Graduate | Legal Researcher | Creative Performer</div>
+    <p class="lead" data-aos="fade-up" data-aos-delay="220">LL.B. (Hons.) — Legal Research & Drafting. Civil, Corporate & Human Rights law — chamber practice at Dhaka District Court. I combine meticulous legal research with clear writing and creative communication.</p>
+    <div class="actions" data-aos="zoom-in" data-aos-delay="320">
+      <a class="btn btn-primary" href="Yasinur_Rahman_Maruf_CV.pdf" target="_blank" rel="noopener">
+        <i class="fa fa-download"></i> Download CV
+      </a>
+      <a class="btn btn-ghost" href="#contact">
+        <i class="fa fa-envelope"></i> Contact
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="section about" aria-labelledby="about-heading" data-aos="fade-right">
+  <h2 tabindex="0" id="about-heading">About Me</h2>
+  <div class="content">
+    <div class="bio">
+      <p>I am a versatile LL.B. (Hons.) graduate from BRAC University with hands-on chamber practice at the Dhaka District & Sessions Judge Court. I have experience drafting legal notices, petitions, affidavits, and contracts, conducting detailed legal research, and preparing case briefs to support litigation strategy.</p>
+      <p>My thesis, “State Sovereignty and Humanitarian Intervention,” focused on R2P. I hold certifications in Intellectual Property and Freedom of Expression, and completed MOOCs in Children’s Rights and Criminology. Outside law, I write and perform songs — I bring creativity and disciplined research to every project.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section" aria-labelledby="exp-heading" data-aos="fade-up">
+  <h2 tabindex="0" id="exp-heading">Experience</h2>
+  <div class="timeline">
+    <div class="item" data-aos="fade-left">
+      <div class="marker" aria-hidden="true"></div>
+      <div class="card">
+        <h3>Chamber Practice — District & Sessions Judge Court, Dhaka (Mar 2025 – Present)</h3>
+        <ul>
+          <li>Drafted legal notices, petitions, affidavits, and contracts under supervision.</li>
+          <li>Conducted civil, corporate, constitutional, and human rights research to assist case preparation.</li>
+          <li>Prepared case briefs, organized documentary evidence, and assisted in client consultations.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="item" data-aos="fade-left" data-aos-delay="120">
+      <div class="marker" aria-hidden="true"></div>
+      <div class="card">
+        <h3>Freelance Writing & Creative Projects (Ongoing)</h3>
+        <ul>
+          <li>Produced articles and academic content on law, rights, and policy.</li>
+          <li>Wrote and performed original songs and collaborated on multimedia storytelling.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section" aria-labelledby="edu-heading" data-aos="fade-up">
+  <h2 tabindex="0" id="edu-heading">Education</h2>
+  <div class="timeline">
+    <div class="item" data-aos="fade-right">
+      <div class="marker" aria-hidden="true"></div>
+      <div class="card">
+        <h3>BRAC University — LL.B. (Hons.)</h3>
+        <p style="color:var(--muted)"><strong>Jul 2020 – Jan 2025</strong></p>
+        <p>Focus: Civil, Corporate, Constitutional & Human Rights Law. Thesis: “State Sovereignty and Humanitarian Intervention: R2P in Kosovo & Iraq.”</p>
+      </div>
+    </div>
+    <div class="item" data-aos="fade-right" data-aos-delay="120">
+      <div class="marker" aria-hidden="true"></div>
+      <div class="card">
+        <h3>The Open University — Certificate Courses</h3>
+        <p style="color:var(--muted)"><strong>Feb 2025 – Apr 2025</strong></p>
+        <p>Completed MOOCs in Children’s Rights, Criminology, International Relations, and Research Methodology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section" aria-labelledby="skills-heading" data-aos="fade-up">
+  <h2 tabindex="0" id="skills-heading">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card" data-aos="fade-up">
+      <div class="skill-icon"><i class="fa fa-gavel"></i></div>
+      <div class="skill-body">
+        <h4>Legal Research</h4>
+        <p>Civil, Corporate, Human Rights</p>
+      </div>
+    </div>
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="120">
+      <div class="skill-icon"><i class="fa fa-file-lines"></i></div>
+      <div class="skill-body">
+        <h4>Legal Drafting</h4>
+        <p>Petitions, Notices, Contracts</p>
+      </div>
+    </div>
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="220">
+      <div class="skill-icon"><i class="fa fa-scale-balanced"></i></div>
+      <div class="skill-body">
+        <h4>Chamber Practice</h4>
+        <p>Litigation Support & Client Prep</p>
+      </div>
+    </div>
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="320">
+      <div class="skill-icon"><i class="fa fa-brain"></i></div>
+      <div class="skill-body">
+        <h4>Analytical Thinking</h4>
+        <p>Policy Review & Case Analysis</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section" data-aos="fade-up">
+  <h2 tabindex="0">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-card" data-aos="fade-up">
+      <h4>Email</h4>
+      <p>yeasinurrahmanmaruf@gmail.com</p>
+      <h4 style="margin-top:20px;">LinkedIn</h4>
+      <p><a href="https://www.linkedin.com/in/yasinur-rahman-maruf-92292937b" target="_blank" rel="noopener">View Profile</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  &copy; 2025 <strong>Yasinur Rahman Maruf</strong> — LL.B. (Hons.) • Dhaka, Bangladesh
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // AOS init
+  AOS.init({ duration: 800, once: false, mirror: true });
+
+  const navHeight = document.querySelector('nav').offsetHeight;
+
+  // Smooth scroll with offset
+  document.querySelectorAll('nav .nav-links a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const targetPosition = target.offsetTop - navHeight - 10; // 10px padding
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
